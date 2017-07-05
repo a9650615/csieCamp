@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper'
 
 export default class TodoList extends Component {
   
-  lists = this.props.list.map((val) => {
+  lists = () => this.props.list.map((val) => {
     return (
       <ListItem key={val.id}>
         {val.text}
@@ -17,7 +17,7 @@ export default class TodoList extends Component {
     return (
       <Paper>
         <List>
-          {this.lists}
+          {this.lists()}
         </List>
       </Paper>
     )
