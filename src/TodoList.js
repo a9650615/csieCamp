@@ -4,13 +4,20 @@ import IconButton from 'material-ui/IconButton';
 import Paper from 'material-ui/Paper'
 
 export default class TodoList extends Component {
+  
+  lists = this.props.list.map((val) => {
+    return (
+      <ListItem key={val.id}>
+        {val.text}
+      </ListItem>
+    )
+  })
+
 	render() {
     return (
       <Paper>
         <List>
-          <ListItem>
-            123
-          </ListItem>
+          {this.lists}
         </List>
       </Paper>
     )
