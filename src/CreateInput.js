@@ -6,6 +6,14 @@ export default class CreateInput extends Component {
     text: ''
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.editData) {
+      this.setState({
+        text: nextProps.editData.text
+      })
+    }
+  }
+
   addTodo(e) {
     if (e.keyCode === 13 && this.state.text !== '') {
       this.props.pushData(this.state)
@@ -29,8 +37,8 @@ export default class CreateInput extends Component {
     return (
       <TextField
        value={this.state.text}
-       hintText="輸入新增事項"
-       floatingLabelText="新增事項"
+       hintText={this.props.editData?"輸入修改事項":"輸入新增事項"}
+       floatingLabelText={this.props.editData?"修改事項":"新增事項"}
        onChange={this.changText.bind(this)}
        onKeyDown={this.addTodo.bind(this)}
        />

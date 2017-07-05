@@ -9,6 +9,7 @@ export default class TodoList extends Component {
     return (
       <ListItem 
         key={val.id}
+        onTouchTap={() => this.props.dataEdit(i)}
         rightIconButton={
           <IconButton iconClassName="material-icons" onTouchTap={() => this.props.deleteData(i)}>delete</IconButton>
         }
