@@ -11,6 +11,14 @@ class App extends Component {
     editData: null
   }
 
+  componentWillMount() {
+    let data = JSON.parse(localStorage.getItem('data'))||[]
+    this.id = parseInt(localStorage.getItem('id'))||0
+    this.setState({
+      listData: data
+    })
+  }
+
   pushData(data) {
     let list = this.state.listData.slice()
     if (this.state.editData) {
@@ -20,7 +28,9 @@ class App extends Component {
         id: this.id++,
         text: data.text
       })
+      localStorage.setItem('id', this.id)
     }
+    localStorage.setItem('data', JSON.stringify(list))
     this.setState({
       listData: list,
       editData: null,
@@ -31,6 +41,7 @@ class App extends Component {
   deleteData(index) {
     let list = this.state.listData.slice()
     list.splice(index, 1)
+    localStorage.setItem('data', JSON.stringify(list))
     this.setState({
       listData: list
     })
