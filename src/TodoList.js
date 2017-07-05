@@ -5,9 +5,14 @@ import Paper from 'material-ui/Paper'
 
 export default class TodoList extends Component {
   
-  lists = () => this.props.list.map((val) => {
+  lists = () => this.props.list.map((val, i) => {
     return (
-      <ListItem key={val.id}>
+      <ListItem 
+        key={val.id}
+        rightIconButton={
+          <IconButton iconClassName="material-icons" onTouchTap={() => this.props.deleteData(i)}>delete</IconButton>
+        }
+        >
         {val.text}
       </ListItem>
     )

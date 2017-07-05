@@ -7,7 +7,7 @@ export default class CreateInput extends Component {
   }
 
   addTodo(e) {
-    if (e.keyCode == 13 && this.state.text != '') {
+    if (e.keyCode === 13 && this.state.text !== '') {
       this.props.pushData(this.state)
       this.clear()
     }
