@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import CreateInput from './CreateInput'
+import TodoList from './TodoList'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">Let's Start!</div>
+      <div className="App">
+        <CreateInput />
+        <TodoList />
+      </div>
     )
   }
 }
